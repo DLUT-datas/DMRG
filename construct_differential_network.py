@@ -37,7 +37,7 @@ m,n = train_data.shape
 sim_score_pos = []
 sim_score_neg = []
 sim_score_link = []
-diff_cor_score = []
+sim_score_cor_diff = []
 for i in range(n):
     temp_pos_1 = train_data_pos[:,i]
     temp_neg_1 = train_data_neg[:,i]
@@ -55,7 +55,7 @@ for i in range(n):
             # sim_score_pos.append(temp_sim_score_pos)
             # sim_score_neg.append(temp_sim_score_neg)
             temp_diff_cor_score = abs(temp_sim_score_pos  - temp_sim_score_neg)
-            diff_cor_score.append(temp_diff_cor_score)
+            sim_score_cor_diff.append(temp_diff_cor_score)
             if temp_diff_cor_score >0.8:
                 sim_score_link.append([gene_symbol[i],gene_symbol[j],temp_diff_cor_score])
 
@@ -63,8 +63,8 @@ for i in range(n):
 pickle.dump(sim_score_link, 
                 open( 'sim_score_link.pickle', "wb"))
 
-pickle.dump(diff_cor_score, 
-                open( 'diff_cor_score.pickle', "wb"))
+pickle.dump(sim_score_cor_diff, 
+                open( 'sim_score_cor_diff.pickle', "wb"))
 
 # differential network graph
 g_diff_network =nx.Graph()# null graph
