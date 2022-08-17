@@ -6,4 +6,4 @@
 5.output information
 
 
-transcriptome data is available (DiffResult_Annot_e1-3 vs t25-1-3_allinfo.xls).
+transcriptome data is available (RNA-seq Con vs oeTRIM25.xls).
